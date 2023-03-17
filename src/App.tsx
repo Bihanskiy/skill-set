@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import Spinner from './components/spinner/spinner.component';
+import MainLayout from './layouts/main/main.layout';
+import {
+  Routes,
+  Route,
+} from 'react-router-dom';
+
+const MainPage = lazy(() => import('./pages/main/main.page'));
+
+const CourseDetailsPage = lazy(
+  () => import('./pages/course-details/course-details.page')
+);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+          <MainLayout>
+            <Routes>
+              <Route path={"/"} element={<MainPage />} />
+              <Route path={"/course/:productId"} element={<CourseDetailsPage />} />
+            </Routes>
+          </MainLayout>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

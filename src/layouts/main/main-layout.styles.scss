@@ -1,10 +1,12 @@
 @import "../../styles/tools/tools";
 
-.main {
-    padding: 70px 0 30px 0;
+.app-main-wrapper {
+    @extend %flex-dc;
+    min-height: 100vh;
 }
 
-.app-main-wrapper {
-    @extend %flex-container;
-    min-height: 100vh;
+.main {
+    padding: 70px 0 30px 0;
+    flex-grow: 1;
+    background-color: $bg-default-color;
 }

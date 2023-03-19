@@ -1,0 +1,10 @@
+@import "../../styles/tools/tools";
+
+.home {
+    padding: 20px 0;
+
+    &__courses-list {
+        @extend %flex-dc;
+        gap: 30px;
+    }
+}

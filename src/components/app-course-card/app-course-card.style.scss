@@ -1,0 +1,32 @@
+@import "../../styles/tools/tools";
+
+.course-card {
+    @extend %flex;
+    @media only screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+    }
+
+    &__info {
+        @extend %flex-dc;
+        flex-grow: 1;
+    }
+
+    &__rating-wrapper {
+        @extend %flex-ac;
+        gap: 10px;
+    }
+
+    &__skills-wrapper {
+        padding-top: 15px;
+    }
+
+    &__media-wrapper {
+        width: auto !important;
+        .media {
+            @media only screen and (min-width: 601px) {
+                width: 350px;
+                height: 100%;
+            }
+        }
+    }
+}

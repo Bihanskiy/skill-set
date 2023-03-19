@@ -1,0 +1,33 @@
+@import "../../styles/tools/tools";
+
+.course-details {
+    padding: 20px 0;
+
+    .header {
+        @extend %flex-ac;
+        margin-bottom: 20px;
+
+        &__breadcrumb {
+            flex-grow: 1;
+
+            &-link {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__description-box {
+        padding: 10px 0 20px 0;
+    }
+
+    &__box-title {
+        font-size: 24px !important;
+        font-weight: 600 !important;
+    }
+
+    &__lessons-box {
+        .course-details__box-title {
+            margin-bottom: 10px;
+        }
+    }
+}

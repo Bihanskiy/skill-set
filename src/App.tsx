@@ -12,6 +12,8 @@ import { useRequest } from './hooks/useRequest';
 
 const MainPage = lazy(() => import('./pages/main/main.page'));
 
+const AboutPage = lazy(() => import('./pages/about/about.page'));
+
 const CourseDetailsPage = lazy(
   () => import('./pages/course-details/course-details.page')
 );
@@ -35,6 +37,7 @@ function App() {
     if (!isHasKey) {
       fetchAuth();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (isAuthLoading) {
@@ -51,6 +54,7 @@ function App() {
           <MainLayout>
             <Routes>
               <Route path={"/"} element={<MainPage />} />
+              <Route path={"/about"} element={<AboutPage />} />
               <Route path={"/course/:id"} element={<CourseDetailsPage />} />
             </Routes>
           </MainLayout>

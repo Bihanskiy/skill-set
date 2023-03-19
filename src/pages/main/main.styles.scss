@@ -6,5 +6,6 @@
     &__courses-list {
         @extend %flex-dc;
         gap: 30px;
+        padding-bottom: 30px;
     }
 }

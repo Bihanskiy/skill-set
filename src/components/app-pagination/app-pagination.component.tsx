@@ -1,41 +1,40 @@
 import React, { useEffect } from 'react';
-import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
-import Pagination from '@mui/material/Pagination';
-import PaginationItem from '@mui/material/PaginationItem';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  Button,
+} from '@mui/material';
 import useQuery from '../../hooks/use-query.hook';
 
 interface IPaginationProps {
-    count: number;
-    onChange: ({ page }: { page: number }) => void;
+  onChange: ({ page }: { page: number }) => void;
 }
 
 const AppPagination = ({
-    count,
-    onChange,
+  onChange,
 }: IPaginationProps): React.ReactElement => {
-    const query = useQuery();
-    const page: number = Number(query.get('page')) || 1;
-    const { pathname } = useLocation()
+  const query = useQuery();
+  const page: number = Number(query.get('page')) || 1;
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        onChange({ page });
-    }, [page, onChange]);
+  useEffect(() => {
+    onChange({ page });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
 
-    return (
-        <Pagination
-            shape="rounded"
-            color="primary"
-            page={page}
-            count={count}
-            renderItem={(item) => (
-                <PaginationItem
-                    component={Link}
-                    to={`${pathname}?page=${item.page}`}
-                    {...item}
-                />
-            )}
-        />
-    );
+  return (
+    <Button
+      variant="contained"
+      size="large"
+      onClick={() => navigate(`${pathname}?page=${page + 1}`)}
+      sx={{
+        display: "flex",
+        m: "0 auto",
+      }}
+    >
+      Show more
+    </Button>
+  );
 };
 
 export default AppPagination;

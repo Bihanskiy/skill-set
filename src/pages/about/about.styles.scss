@@ -1,0 +1,16 @@
+@import "../../styles/tools/tools";
+
+.about {
+  .header {
+    @extend %flex-ac;
+    padding-top: 20px;
+
+    &__breadcrumb {
+      flex-grow: 1;
+    }
+
+    &__breadcrumb-link {
+      cursor: pointer;
+    }
+  }
+}

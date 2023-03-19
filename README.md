@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## What Used
+
+- TypeScript
+- React
+- React Hooks
+- React Router Dom
+- Material UI
+- Scss
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -2,12 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Comments
+
+Video working only with localhost. You need to use Allow CORS: Access-Control-Allow-Origin extension to prevent CORS block
+
 ## What Used
 
 - TypeScript
 - React
 - React Hooks
 - React Router Dom
+- Video.js
 - Material UI
 - Scss
 
